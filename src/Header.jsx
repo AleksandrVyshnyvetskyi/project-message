@@ -11,9 +11,14 @@ const ThemeToggle = () => {
     );
 };
 
-function Header({ text, setText }) {
-    const handleInputChange = (e) => {
-        setText(e.target.value);
+function Header({ text, setText, handleAddQuote, setShowList, showList }) {
+    const handleInputChange = (e) => setText(e.target.value);
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleAddQuote();
+        }
     };
 
     return (
@@ -22,7 +27,7 @@ function Header({ text, setText }) {
                 <li>
                     <p>
                         <Logo className="logo-icon" />
-                        You Message
+                        Your Message
                     </p>
                 </li>
                 <li>
@@ -31,15 +36,20 @@ function Header({ text, setText }) {
                     </ThemeProvider>
                 </li>
                 <li>
-                    <a href="#">Our message</a>
+                    <button onClick={() => setShowList(!showList)}>
+                        {showList ? "Your message" : "Our messages"}
+                    </button>
                 </li>
                 <li>
-                    <button type="button">Create a</button>
+                    <button type="button" onClick={handleAddQuote}>
+                        Create a
+                    </button>
                     <input
                         type="text"
                         value={text}
                         placeholder="message"
                         onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
                     />
                 </li>
             </ul>
