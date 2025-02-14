@@ -1,0 +1,163 @@
+:root {
+  --bg-color: #fbb845;
+  --text-color: #000;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000;
+  --text-color: #fbb845;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-family: Oswald;
+  font-size: 1.2rem;
+}
+
+.logo-icon {
+  fill: var(--text-color);
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav ul p {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+li {
+    list-style-type: none;
+}
+
+nav ul li button {
+  background-color: var(--bg-color);
+  border: none;
+  color: var(--text-color);
+  font-family: Oswald;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding-right: 0;
+}
+
+nav ul li input {
+  color: var(--text-color);
+  font-family: Oswald;
+  font-size: 1.2rem;
+  padding: 0 5px;
+  cursor: pointer;
+  border: 2px solid var(--bg-color);
+  background-color: transparent;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.message {
+  color: var(--text-color);
+  font-family: Oswald;
+  font-size: 8em;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.message--translit {
+  font-family: Oswald;
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+.creater {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: Oswald;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+
+.creater span {
+  transition: all 0.5s ease;
+}
+
+.creater:hover span {
+  color: #fff;
+}
+
+@media screen and (max-width: 719px) {
+  .message {
+  font-size: 4em;
+  }
+
+    nav ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 5px;
+  }
+
+  nav p {
+    margin: 0;
+  }
+
+  nav ul li input  {
+    width: 20%;
+    max-width: 100%;
+    border: none;
+  }
+
+  nav ul li button {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  nav li:has(button) {
+    background-color: var(--text-color);
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 720px) {
+  .message {
+  font-size: 6em;
+  }
+}
